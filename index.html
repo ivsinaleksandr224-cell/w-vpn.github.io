@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W.VPN Downloads</title>
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --accent: #00ff88;
+            --text-main: #ffffff;
+            --text-sec: #aaaaaa;
+            --border: #333333;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .subtitle {
+            color: var(--text-sec);
+            text-align: center;
+            max-width: 550px;
+            margin-bottom: 50px;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .subtitle a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent);
+            transition: all 0.2s ease;
+        }
+
+        .subtitle a:hover {
+            color: #fff;
+            border-bottom-style: solid;
+        }
+
+        .versions-list {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .version-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 1fr auto auto; 
+            gap: 15px;
+            align-items: center;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .version-card:nth-child(1) { animation-delay: 0.1s; }
+        .version-card:nth-child(2) { animation-delay: 0.2s; }
+
+        .version-card:hover {
+            transform: translateY(-3px);
+            border-color: #555;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(10px); }
+        }
+
+        .ver-info { display: flex; flex-direction: column; gap: 8px; }
+        
+        .ver-name { 
+            font-weight: 700; 
+            font-size: 1.25rem; 
+            letter-spacing: 0.5px;
+        }
+
+        .ver-desc {
+            font-size: 0.85rem;
+            color: var(--text-sec);
+            margin-top: 4px;
+        }
+        
+        .ver-status { 
+            font-size: 0.9rem; 
+            color: var(--text-sec); 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
+        
+        .dot { 
+            height: 8px; 
+            width: 8px; 
+            border-radius: 50%; 
+            display: inline-block; 
+        }
+        .green { background-color: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        .blue { background-color: #00ccff; box-shadow: 0 0 8px #00ccff; }
+
+        /* Общие стили для кнопок */
+        .btn {
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        /* Кнопка скачивания (Яркая) */
+        .download-btn {
+            background-color: var(--accent);
+            color: #000;
+        }
+
+        .download-btn:hover { 
+            background-color: #00cc6a; 
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+        }
+        
+        .download-btn:active { transform: scale(0.96); }
+
+        /* Кнопка ссылки на GitHub (Темная) */
+        .github-link-btn {
+            background-color: #2a2a2a;
+            color: #fff;
+            border: 1px solid #444;
+        }
+
+        .github-link-btn:hover {
+            background-color: #333;
+            border-color: #666;
+            box-shadow: none;
+        }
+
+        /* Адаптив для мобильных */
+        @media (max-width: 550px) {
+            h1 { font-size: 2.8rem; }
+            .version-card { 
+                padding: 20px; 
+                grid-template-columns: 1fr; 
+                gap: 12px;
+            }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>W.VPN</h1>
+
+    <p class="subtitle">
+        Это установочный сервис "warp VPN".<br>
+        О внутренностях вы можете ознакомиться на нашей странице в 
+        <a href="https://github.com/ivsinaleksandr224-cell" target="_blank">GitHub</a>.
+    </p>
+
+    <div class="versions-list">
+
+        <!-- НОВАЯ ВЕРСИЯ v1.0.1 -->
+        <div class="version-card">
+            <div class="ver-info">
+                <div class="ver-name">v1.0.1 Update</div>
+                <div class="ver-status">
+                    <span class="dot blue"></span> Новое обновление
+                </div>
+                <div class="ver-desc">
+                    • Живой хаб скорости (MB/s)<br>
+                    • Автопереподключение при разрыве<br>
+                    • Уведомления о статусе
+                </div>
+            </div>
+            
+            <!-- ССЫЛКА ВЕДЕТ НА GET-ФАЙЛ ДЛЯ НОВОЙ ВЕРСИИ -->
+            <a href="get-v1.0.1.html" class="btn download-btn">
+                Скачать ⬇️
+            </a>
+
+            <!-- ССЫЛКА НА GITHUB ДЛЯ НОВОЙ ВЕРСИИ (вставь сюда ссылку на релиз) -->
+            <a href="https://github.com/ivsinaleksandr224-cell/W.VPN-1.0.0.0.1-" target="_blank" class="btn github-link-btn">
+                ссылка на версию (GitHub)
+            </a>
+        </div>
+
+        <!-- СТАРАЯ СТАБИЛЬНАЯ ВЕРСИЯ v1.0.0 -->
+        <div class="version-card">
+            <div class="ver-info">
+                <div class="ver-name">v1.0.0 Stable</div>
+                <div class="ver-status">
+                    <span class="dot green"></span> Hit (Работает)
+                </div>
+                <div class="ver-desc">
+                    Базовая версия. Стабильное подключение без дополнительных функций.
+                </div>
+            </div>
+            
+            <!-- ССЫЛКА ВЕДЕТ НА GET-ФАЙЛ ДЛЯ СТАРОЙ ВЕРСИИ -->
+            <a href="get-v1.0.0.html" class="btn download-btn" style="background-color: #444; color: #fff;">
+                Скачать v1.0.0 ⬇️
+            </a>
+
+            <!-- ССЫЛКА НА GITHUB ДЛЯ СТАРОЙ ВЕРСИИ (вставь сюда ссылку на релиз) -->
+            <a href="https://github.com/ivsinaleksandr224-cell/W.VPN" target="_blank" class="btn github-link-btn">
+                ссылка на версию (GitHub)
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
